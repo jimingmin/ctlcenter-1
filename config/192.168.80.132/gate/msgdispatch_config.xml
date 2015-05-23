@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<msg>
+	<param msgid="1" action="inbound" channel_key="client:account:req"/>
+	<param msgid="2" action="outbound"/>
+	<param msgid="4" action="inbound" channel_key="client:account:req"/>
+	<param msgid="5" action="outbound"/>
+	<param msgid="7" action="inbound" channel_key="client:account:req"/>
+	<param msgid="8" action="outbound"/>
+	<param msgid="10" action="inbound" channel_key="client:account:req"/>
+	<param msgid="11" action="outbound"/>
+	<param msgid="13" action="inbound" channel_key="client:account:req"/>
+	<param msgid="14" action="outbound"/>
+	<param msgid="16" action="inbound" channel_key="client:account:req"/>
+	<param msgid="17" action="outbound"/>
+	<param msgid="21" action="outbound"/>
+	<param msgid="25" action="inbound" channel_key="client:account:req"/>
+	<param msgid="26" action="outbound"/>
+	<param msgid="28" action="inbound" channel_key="client:account:req"/>
+
+	<param msgid="104" action="inbound" channel_key="client:contacts:req"/>
+	<param msgid="105" action="outbound"/>
+	<param msgid="107" action="inbound" channel_key="client:contacts:req"/>
+	<param msgid="108" action="outbound"/>
+	<param msgid="113" action="inbound" channel_key="client:contacts:req"/>
+	<param msgid="114" action="outbound"/>
+	<param msgid="126" action="inbound" channel_key="client:contacts:req"/>
+	<param msgid="127" action="outbound"/>
+
+	<param msgid="404" action="inbound" channel_key="client:location:req"/>
+	<param msgid="405" action="outbound"/>
+	<param msgid="416" action="inbound" channel_key="client:location:req"/>
+
+	<param msgid="601" action="inbound" channel_key="client:chat:req"/>
+	<param msgid="602" action="outbound"/>
+	<param msgid="604" action="inbound" channel_key="client:chat:req"/>
+	<param msgid="605" action="outbound"/>
+	<param msgid="219" action="inbound" channel_key="client:chat:req"/>
+	<param msgid="220" action="outbound"/>
+
+	<param msgid="60200" action="outbound"/>
+	<param msgid="60201" action="inbound" channel_key="client:msgsync:req"/>
+	<param msgid="60202" action="outbound"/>
+	<param msgid="60203" action="inbound" channel_key="client:msgsync:req"/>
+	<param msgid="60204" action="outbound"/>
+</msg>
+

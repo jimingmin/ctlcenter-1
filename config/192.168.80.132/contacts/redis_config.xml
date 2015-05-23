@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <redis>
-	<node server_name="gate" server_id="1" server_address="127.0.0.1" server_port="10001" channel_key="client:account:req"/>
-	<!--<node server_name="gate" server_id="2" server_address="127.0.0.1" server_port="10002" channel_key="client:account:req"/>-->
-
-	<node server_name="accountpool" server_id="1" server_address="127.0.0.1" server_port="10001"/>
+	<node server_name="gate" server_id="1" server_address="127.0.0.1" server_port="10001" channel_key="client:contacts:req"/>
 
 	<node server_name="user:info" server_id="1" server_address="127.0.0.1" server_port="10001"/>
 	<!--<node server_name="user:info" server_id="2" server_address="127.0.0.1" server_port="10002"/>-->

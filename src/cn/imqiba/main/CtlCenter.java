@@ -1,5 +1,7 @@
 package cn.imqiba.main;
 
+import java.io.File;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -13,16 +15,20 @@ import io.netty.handler.codec.Delimiters;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import cn.imqiba.frame.MsgExecMap;
 import cn.imqiba.util.ServerConfigBank;
-import cn.imqiba.util.UserSignalHandler;
 
 public class CtlCenter
 {
+	static
+	{
+		PropertyConfigurator.configure(System.getProperty("user.dir") + File.separator + "log4j.properties");
+	}
+	
 	private Logger logger = Logger.getLogger(Class.class);
 	
 	public void startCmdServer(int port)

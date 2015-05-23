@@ -12,6 +12,7 @@ import java.util.Set;
 public class ServiceConfigBank
 {
 	private Map<String, String> m_stConfigMap = new HashMap<String, String>();
+	private Map<String, Long> m_stConfigModifyTimeMap = new HashMap<String, Long>();
 	
 	public boolean LoadConfig(String path)
 	{
@@ -21,9 +22,17 @@ public class ServiceConfigBank
 		{
 			String configName = fileList[i];
 			String configFullPath = file.getAbsolutePath() + File.separator + configName;
+			if(m_stConfigMap.containsKey(configName))
+			{
+				if(m_stConfigModifyTimeMap.get(configName) == file.lastModified())
+				{
+					continue;
+				}
+			}
 			
 			String content = ReadFileContent(configFullPath);
 			m_stConfigMap.put(configName, content);
+			m_stConfigModifyTimeMap.put(configName, file.lastModified());
 		}
 		
 		return true;

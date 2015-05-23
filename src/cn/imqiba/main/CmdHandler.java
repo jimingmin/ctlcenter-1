@@ -1,9 +1,10 @@
 package cn.imqiba.main;
 
+import java.net.InetSocketAddress;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.buffer.SlicedByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.buffer.UnpooledUnsafeDirectByteBuf;
 
@@ -12,10 +13,20 @@ import org.json.JSONObject;
 
 import cn.imqiba.frame.MsgExecMap;
 import cn.imqiba.impl.AbstractBusiness;
+import cn.imqiba.util.ServerConfigBank;
 
 public class CmdHandler extends ChannelInboundHandlerAdapter
 {
 	private static Logger logger = Logger.getLogger(Class.class);
+	
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception
+    {
+		InetSocketAddress remoteAddress = (InetSocketAddress)ctx.channel().remoteAddress();
+		String remoteServerAddress = remoteAddress.getAddress().getHostAddress();
+    	ServerConfigBank.UnregistService(remoteServerAddress, ctx);
+        super.channelInactive(ctx);
+    }
 	
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception
@@ -61,7 +72,7 @@ public class CmdHandler extends ChannelInboundHandlerAdapter
 			ctx.writeAndFlush(buf);
 		}
 	}
-
+	
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception
 	{

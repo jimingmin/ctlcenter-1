@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<server>
+	<param errno="0" string="请求成功"/>
+	<param errno="1" string="服务器异常"/>
+	<param errno="2" string="参数错误"/>
+	<param errno="3" string="话题不存在或者已被删除"/>
+	<param errno="4" string="发布话题太快，请3分钟后再发布"/>
+	<param errno="5" string="用户不存在"/>
+	<param errno="6" string="不可重复点赞"/>
+</server>
+

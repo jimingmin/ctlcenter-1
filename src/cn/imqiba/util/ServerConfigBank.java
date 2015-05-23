@@ -1,38 +1,54 @@
 package cn.imqiba.util;
 
+import io.netty.channel.ChannelHandlerContext;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class ServerConfigBank
 {
 	public static Map<String, ServerBank> m_stServerMap = new HashMap<String, ServerBank>();
+	public static String m_strBaseDir = null;
 	
-	public static String ScanDir(String path)
+	public static String GetConfigDir()
 	{
+		return m_strBaseDir;
+	}
+	
+	public static int ScanDir(String path)
+	{
+		if(path == null)
+		{
+			return 1;
+		}
+		
 		File rootDir = new File(path);
 		if (!rootDir.isDirectory())
 		{
-			return null;
+			return 1;
 		}
 		else
 		{
+			m_strBaseDir = rootDir.getAbsolutePath();
 			String[] fileList = rootDir.list();
 			for (int i = 0; i < fileList.length; i++)
 			{
 				String serverAddress = fileList[i];
-				path = rootDir.getAbsolutePath() + File.separator + serverAddress;
-				ServerBank serverBank = new ServerBank();
+				path = m_strBaseDir + File.separator + serverAddress;
+				ServerBank serverBank = m_stServerMap.get(serverAddress);
+				if(serverBank == null)
+				{
+					serverBank = new ServerBank();
+				}
+				
 				serverBank.LoadServiceConfig(path);
 				m_stServerMap.put(serverAddress, serverBank);
 			}
 		}
 		
-		return null;
+		return 0;
 	}
 	
 	public static String[] GetConfigList(String serverAddress, String serviceName)
@@ -63,5 +79,34 @@ public class ServerConfigBank
 			}
 		}
 		return content;
+	}
+	
+	public static void RegistService(String serverAddress, String serviceName, ChannelHandlerContext ctx)
+	{
+		if(m_stServerMap.containsKey(serverAddress))
+		{
+			ServerBank serverBank = m_stServerMap.get(serverAddress);
+			serverBank.RegistSession(serviceName, ctx);
+		}
+	}
+	
+	public static void UnregistService(String serverAddress, ChannelHandlerContext ctx)
+	{
+		if(m_stServerMap.containsKey(serverAddress))
+		{
+			ServerBank serverBank = m_stServerMap.get(serverAddress);
+			serverBank.UnregistSession(ctx);
+		}
+	}
+	
+	public static ArrayList<ChannelHandlerContext> GetServiceSession(String serverAddress, String serviceName)
+	{
+		ServerBank serverBank = m_stServerMap.get(serverAddress);
+		if(serverBank != null)
+		{
+			return serverBank.GetServiceSessions(serviceName);
+		}
+		
+		return null;
 	}
 }
