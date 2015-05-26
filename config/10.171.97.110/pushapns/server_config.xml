@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<server>
+	<apns file="./aps_development.p12" token="1qwerty"/>
+</server>
+

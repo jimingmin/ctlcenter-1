@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mongo>
+	<node server_id="1" server_uri="mongodb://10.171.97.110:54178" dbname="location"/>
+</mongo>
+

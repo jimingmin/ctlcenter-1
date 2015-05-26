@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+	<node server_uri="jdbc:mysql://182.92.240.240:3306" db_name="account_pool" db_user="root" db_passwd="Imqiba5478mimajiaqiang"/>
+	<account make_count="1000"/>
+</server>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<server>
+	<self listen_port="8080"/>
+	<redis server_name="user" server_id="1" server_address="127.0.0.1" server_port="6379"/>
+	<oss access_id="xhVGrFDM2BjhuyGI" access_secret="yIVWJIUJnyxeLrOS5DnZc2Lji4ginV"/>
+	<apns file="./aps_development.p12" token="1qwerty"/>
+</server>
+

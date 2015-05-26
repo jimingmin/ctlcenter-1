@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<redis>
+	<node server_name="gate" server_id="1" server_address="127.0.0.1" server_port="10001" channel_key="client:resp:"/>
+	<node server_name="gate" server_id="2" server_address="127.0.0.1" server_port="10002" channel_key="client:resp:"/>
+	<node server_name="gate" server_id="3" server_address="127.0.0.1" server_port="10003" channel_key="client:resp:"/>
+
+	<node server_name="queue" server_id="1" server_address="127.0.0.1" server_port="10001"/>
+	<node server_name="queue" server_id="2" server_address="127.0.0.1" server_port="10002"/>
+	<node server_name="queue" server_id="3" server_address="127.0.0.1" server_port="10003"/>
+
+	<node server_name="user:session" server_id="1" server_address="127.0.0.1" server_port="10001"/>
+	<node server_name="user:session" server_id="2" server_address="127.0.0.1" server_port="10002"/>
+	<node server_name="user:session" server_id="3" server_address="127.0.0.1" server_port="10003"/>
+</redis>
+

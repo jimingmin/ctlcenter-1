@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<server>
+	<regist phone_regist_count="10" address_regist_count="100"/>
+	<!--<auth auth_code_live_time="600" message="【奇巴科技】您的奇巴短信验证码是auth_code，请勿将验证码提供给他人"/>-->
+	<auth auth_code_live_time="600" message="您的验证码是：【auth_code】。请不要把验证码泄露给其他人。"/>
+</server>
