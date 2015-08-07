@@ -7,6 +7,5 @@
 	<param errno="4" string="发布话题太快，请3分钟后再发布"/>
 	<param errno="5" string="用户不存在"/>
 	<param errno="6" string="不可重复点赞"/>
-	<param errno="7" string="评论太快，请30秒后再评论"/>
 </server>
 
